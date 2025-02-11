@@ -16,10 +16,12 @@ import { Fragment } from "react";
 import Divider from "../Divider";
 import NotiItem from "../NotiItem";
 import UnreadContainer from "../UnreadContainer";
+import { isLoginAtom } from "@/app/(root)/courses/(courses)/(store)/courseStore";
+import { useAtomValue } from "jotai";
 
 const LeftSideBar = () => {
   const pathName = usePathname();
-  const isLoggedIn: boolean = sessionStorage.getItem('isLoginAtom') === 'true'
+  const isLoggedIn = useAtomValue(isLoginAtom);
 
   const isOriginalRoute = () => {
     // TODO: MỚI SỬA CODE TỪ LUỒNG STUDENT
